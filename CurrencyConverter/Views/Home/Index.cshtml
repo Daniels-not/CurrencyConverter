@@ -1,0 +1,85 @@
+﻿@*Strong typed*@
+@model Application.Models.CurrencyCoverterModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Currency Converter</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+	<h2 class="heading text-center display-2">Currency Converter</h2>
+
+	<hr>
+	<div class="container">
+
+		<form method="post" asp-controller="Home" asp-action="Create">
+			<div class="main">
+
+				<div class="form-group mb-2">
+					<label>Amount to Convert :</label>
+					<input type="number"
+						   class="form-control searchBox"
+						   placeholder="0"
+						   asp-for="Currency" required min="0">
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">From</span>
+							</div>
+							<select class="form-control from" id="sel1" asp-for="CurrencyType1" required>
+								<option value="">Select One …</option>
+								<option value="1">DOP</option>
+								<option value="2">USD</option>
+								<option value="3">EUR</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">To</span>
+							</div>
+							<select class="form-control to" asp-for="CurrencyType2" required>
+								<option value="">Select One …</option>
+								<option value="1">DOP</option>
+								<option value="2">USD</option>
+								<option value="3">EUR</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<!-- convert button -->
+					<button class="btn btn-primary convert m-2" type="submit">Convert</button>
+				</div>
+
+			</div>
+		</form>
+
+		<div id="finalAmount" class="text-center">
+			<!-- Display the converted amount -->
+			<h2>
+				Converted Amount : <span class="finalValue" style="color:green;">@Model.resutls</span>
+			</h2>
+		</div>
+	</div>
+
+</body>
+
+</html>
