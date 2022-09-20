@@ -9,6 +9,7 @@ Currency converter is a csharp web app witch allow you to perform the following 
 ## Appendix
 
 - Currency Convertion
+- Validation
 - Onion Architecture
 
 
